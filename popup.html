@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Video Ad &amp; Redirect Blocker</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="header">
+        <div class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img">
+            <path d="M12 2.7 4.6 5.5v5.8c0 4.7 3 8.8 7.4 10 4.4-1.2 7.4-5.3 7.4-10V5.5L12 2.7Z" />
+            <path class="play" d="m10 8.3 5.4 3.7-5.4 3.7V8.3Z" />
+          </svg>
+        </div>
+        <div>
+          <h1>Video Ad Blocker</h1>
+          <p id="site-name">Checking this page…</p>
+        </div>
+      </header>
+
+      <section id="unsupported" class="notice hidden" aria-live="polite">
+        Open a normal website to use this extension.
+      </section>
+
+      <div id="controls" class="hidden">
+        <section class="protection-card">
+          <div>
+            <p class="eyebrow">Protection on this site</p>
+            <p id="status-copy" class="status-copy">Protection is off</p>
+          </div>
+          <label class="switch" aria-label="Protect this website">
+            <input id="site-toggle" type="checkbox" />
+            <span class="slider"></span>
+          </label>
+        </section>
+
+        <section class="stats" aria-live="polite">
+          <div>
+            <strong id="site-count">0</strong>
+            <span>stops here</span>
+          </div>
+          <div class="divider"></div>
+          <div>
+            <strong id="total-count">0</strong>
+            <span>stops total</span>
+          </div>
+        </section>
+
+        <section class="options-card">
+          <label class="option-row">
+            <span>
+              <strong>Hide webpage ads</strong>
+              <small>Blocks banners, overlays, and known ad servers.</small>
+            </span>
+            <input id="page-ads-toggle" type="checkbox" checked />
+          </label>
+          <label class="option-row">
+            <span>
+              <strong>Skip video ads</strong>
+              <small>Clicks skip controls and fast-forwards recognized ads.</small>
+            </span>
+            <input id="video-ads-toggle" type="checkbox" checked />
+          </label>
+        </section>
+
+        <section class="allow-card">
+          <div class="section-heading">
+            <div>
+              <h2>Allowed destinations</h2>
+              <p>For trusted sign-in or payment pages.</p>
+            </div>
+          </div>
+
+          <form id="allow-form">
+            <label class="sr-only" for="allow-input">Domain to allow</label>
+            <div class="input-row">
+              <input
+                id="allow-input"
+                type="text"
+                inputmode="url"
+                autocomplete="off"
+                placeholder="example.com"
+              />
+              <button type="submit">Add</button>
+            </div>
+            <p id="form-error" class="form-error" role="alert"></p>
+          </form>
+
+          <ul id="allow-list" class="allow-list"></ul>
+          <p id="empty-list" class="empty-list">No extra domains allowed.</p>
+        </section>
+
+        <p class="footnote">
+          Protection starts automatically on every new website. Turn it off here only when a trusted site needs it.
+        </p>
+      </div>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
